@@ -1,9 +1,7 @@
-depth = [int(line) for line in open('day01.txt').read().split('\n')]
+from aoc_util import as_int_list
 
 
-def solve1():
-    return len([1 for i in range(1, len(depth)) if depth[i] > depth[i - 1]])
-
-
-def solve2():
-    return len([1 for i in range(3, len(depth)) if depth[i] > depth[i - 3]])
+def solve():
+    depth = as_int_list('day01.txt')
+    return len([1 for i in range(1, len(depth)) if depth[i] > depth[i - 1]]), \
+           len([1 for i in range(3, len(depth)) if depth[i] > depth[i - 3]])
