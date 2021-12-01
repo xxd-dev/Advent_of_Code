@@ -6,5 +6,4 @@ def solve1():
 
 
 def solve2():
-    windows = [depth[i] + depth[i - 1] + depth[i - 2] for i in range(2, len(depth))]
-    return len([1 for i in range(1, len(windows)) if windows[i] > windows[i - 1]])
+    return len([1 for i in range(3, len(depth)) if depth[i] > depth[i - 3]])
