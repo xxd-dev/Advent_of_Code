@@ -1,8 +1,11 @@
+from aoc_util import as_2d_list
+
+
 def solve():
-    course = [(item.split(' ')[0], int(item.split(' ')[1])) for item in open('inputs/day02.txt').read().split('\n')]
-    horizontal = sum([cmd[1] for cmd in course if cmd[0] == "forward"])
-    vertical1 = sum([cmd[1] for cmd in course if cmd[0] == "down"]) - \
-                sum([cmd[1] for cmd in course if cmd[0] == "up"])
+    course = as_2d_list('inputs/day02.txt', delimiter=' ', parseints=True)
+    horizontal = sum(cmd[1] for cmd in course if cmd[0] == "forward")
+    vertical1 = sum(cmd[1] for cmd in course if cmd[0] == "down") - \
+                sum(cmd[1] for cmd in course if cmd[0] == "up")
     vertical2 = aim = 0
     for cmd in course:
         if cmd[0] == 'forward':
