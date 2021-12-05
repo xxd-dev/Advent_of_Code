@@ -24,3 +24,11 @@ def as_2d_dict(file):
         for j in range(len(temp_list[i])):
             ret[(i, j)] = temp_list[i][j]
     return ret, len(temp_list), len(temp_list[0])
+
+
+def sign(number):
+    if number > 0:
+        return 1
+    if number < 0:
+        return -1
+    return 0
