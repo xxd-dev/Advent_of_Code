@@ -17,8 +17,8 @@ def as_2d_list(file, delimiter, parseints):
     return ret
 
 
-def as_2d_dict(file):
-    temp_list = as_2d_list(file, '', False)
+def as_2d_dict(file, parseints):
+    temp_list = as_2d_list(file, '', parseints)
     ret = dict()
     for i in range(len(temp_list)):
         for j in range(len(temp_list[i])):
