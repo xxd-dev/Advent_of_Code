@@ -6,24 +6,8 @@ def solve():
 
 
 def decode(entry):
-    table = ['' for _ in range(10)]
-    lengths = {2: 1, 3: 7, 4: 4, 7: 8}
-    for digit in entry[0]:
-        if len(digit) in lengths:
-            table[lengths[len(digit)]] = digit
-    for digit in entry[0]:
-        if len(digit) == 5:
-            if len([1 for segment in digit if segment not in table[4]]) == 3:
-                table[2] = digit
-            elif len([1 for segment in digit if segment not in table[1]]) == 3:
-                table[3] = digit
-            else:
-                table[5] = digit
-        elif len(digit) == 6:
-            if len([1 for segment in digit if segment not in table[4]]) == 2:
-                table[9] = digit
-            elif len([1 for segment in digit if segment not in table[1]]) == 4:
-                table[0] = digit
-            else:
-                table[6] = digit
-    return int(''.join(str(table.index(n)) for n in entry[1]))
+    lookup = {42: 0, 17: 1, 34: 2, 39: 3, 30: 4, 37: 5, 41: 6, 25: 7, 49: 8, 45: 9}
+    occurrences = dict()
+    for c in 'abcdefg':
+        occurrences[c] = ''.join(entry[0]).count(c)
+    return int(''.join(str(lookup[sum(occurrences[c] for c in digit)]) for digit in entry[1]))
