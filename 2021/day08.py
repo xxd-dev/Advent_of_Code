@@ -7,7 +7,5 @@ def solve():
 
 def decode(entry):
     lookup = {42: 0, 17: 1, 34: 2, 39: 3, 30: 4, 37: 5, 41: 6, 25: 7, 49: 8, 45: 9}
-    occurrences = dict()
-    for c in 'abcdefg':
-        occurrences[c] = ''.join(entry[0]).count(c)
+    occurrences = {char: ''.join(entry[0]).count(char) for char in 'abcdefg'}
     return int(''.join(str(lookup[sum(occurrences[c] for c in digit)]) for digit in entry[1]))
