@@ -32,3 +32,8 @@ def sign(number):
     if number < 0:
         return -1
     return 0
+
+
+def neighbours_2D(tuple):
+    return [(tuple[0]+dir[0], tuple[1]+dir[1])
+            for dir in [(1, 1), (1, 0), (1, -1), (0, 1), (0, -1), (-1, 1), (-1, 0), (-1, -1)]]
