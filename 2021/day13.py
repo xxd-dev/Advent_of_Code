@@ -1,7 +1,7 @@
 def solve():
     components = open('inputs/day13.txt').read().split('\n\n')
-    folds = components[1].split('\n')
-    dots = {(int(line.split(',')[0]), int(line.split(',')[1])) for line in components[0].split('\n')}
+    folds = [instruction for instruction in components[1].split('\n')]
+    dots = {tuple(int(x) for x in line.split(',')) for line in components[0].split('\n')}
     for i in range(len(folds)):
         dots = fold(dots, folds[i])
         if i == 0:
