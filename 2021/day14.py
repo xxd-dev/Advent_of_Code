@@ -1,24 +1,15 @@
 def solve():
     string, rules = open('inputs/day14.txt').read().split('\n\n')
     rules = [rule.split(' -> ') for rule in rules.split('\n')]
-    for rule in rules:
-        rule[1] = [rule[0][0]+rule[1][0], rule[1][0]+rule[0][1]]
-    rules = dict(rules)
+    rules = {rule[0]: [rule[0][0]+rule[1][0], rule[1][0]+rule[0][1]] for rule in rules}
+    rules = {key: [item for item in rules if key in rules[item]]
+              for key in [i for sub in rules.values() for i in sub] + [i for i in rules.keys()]}
     counter = {rule: string.count(rule) for rule in rules}
     for i in range(40):
-        counter = iterate(counter, rules)
+        counter = {key: sum(counter[value] for value in rules.get(key, [])) for key in rules}
         if i == 9:
             task1 = result(counter, string)
     return task1, result(counter, string)
-
-
-def iterate(counter, rules):
-    c2 = {key: 0 for key in rules}
-    for value in counter:
-        if counter[value] > 0:
-            for nxt in rules[value]:
-                c2[nxt] += counter[value]
-    return c2
 
 
 def result(counter, string):
