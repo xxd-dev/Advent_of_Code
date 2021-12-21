@@ -6,7 +6,7 @@ def solve():
         dots = fold(dots, folds[i])
         if i == 0:
             task1 = len(dots)
-    return task1, '\n'.join([''.join(['#' if (i, j) in dots else ' ' for i in range(39)]) for j in range(6)])
+    return task1, '\n'+'\n'.join([''.join(['#' if (i, j) in dots else ' ' for i in range(39)]) for j in range(6)])
 
 
 def fold(dots, instruction):
