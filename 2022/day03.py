@@ -9,4 +9,3 @@ def solve():
     task2 = sum([alphabet.index((set(file[i]) & set(file[i+1]) & set(file[i+2])).pop())
                  for i in range(0, len(file), 3)])
     return task1, task2
-
