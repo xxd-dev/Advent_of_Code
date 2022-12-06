@@ -1,6 +1,3 @@
-from aoc_util import as_2d_list
-
-
 def solve():
     file = open('inputs/day03.txt').read().split('\n')
     alphabet = '_abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ'

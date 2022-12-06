@@ -1,6 +1,3 @@
-import aoc_util
-
-
 def solve():
     games = open('inputs/day02.txt').read().split('\n')
     score1 = {'A X': 4, 'A Y': 8, 'A Z': 3, 'B X': 1, 'B Y': 5, 'B Z': 9, 'C X': 7, 'C Y': 2, 'C Z': 6}
